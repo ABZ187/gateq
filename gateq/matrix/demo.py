@@ -1,8 +1,13 @@
-# from django.db import models
+from scipy.linalg import _fblas
+_fblas
 
-# # Create your models here.
-
+# from models import d3
 # from manim import *
+
+# import os
+# c1=d3()
+
+# os.system("manim -ql manim.py d3")
 
 # x1=[4,0,0]
 
@@ -166,4 +171,4 @@
 #         #self.wait(PI)
 #        # self.stop_3dillusion_camera_rotation()
 
-# c1=d3()
+# # c1.construct(x1=[4,0,0])

@@ -1,12 +1,25 @@
 from manim import *
+import math
 
-x1=1
+
+
+# class FirstManim(Scene):
+#     def construct(self,x1=0.8):
+#         green_square=Square(2,color=GREEN_A)
+#         green_square.set_fill(color=YELLOW,opacity=x1)
+#         ax=Axes(x_range=(-10,10),y_range=(-5,5))
+#         wave =ax.plot(lambda x: math.sin(x),color=RED)
+#         area= ax.get_area(wave,x_range=(-10,10))
+#         self.add(ax)
+#         self.play(Create(wave),run_time=3)
+#         self.play(FadeIn(area),color=RED,opacity=0.8)
+
 
       # Note the difference from the manual!!!
 class d3(ThreeDScene):
-    def construct(self,x=x1):
+    def construct(self):
         axes = ThreeDAxes()
-        circle=Circle(radius=5.0, color=WHITE, fill_opacity = x)
+        circle=Circle(radius=5.0, color=WHITE, fill_opacity = 1)
         self.set_camera_orientation(phi=75 * DEGREES, theta=30 * DEGREES, gamma=None,zoom=0.5, focal_distance=None, )
 #############################
 #############################
@@ -157,9 +170,76 @@ class d3(ThreeDScene):
 
         self.add(cube1)
 
+        #laser
+        laser1 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([8,0,0])
+        laser1 = laser1.set_color(RED)
 
+        laser2 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([-2,0,0])
+        laser2 = laser2.set_color(PINK)
+
+        laser3 = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,0,0])
+        laser3 = laser3.set_color(PINK)
+        #self.add(cylinder4)
+        self.play(
+            laser1.animate.move_to([-2,0,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser1))
+        self.play(
+            laser2.animate.move_to([-7,0,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser2))
+        self.play(
+            laser3.animate.move_to([-7,3,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser3))
+        
+        ########
+        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
+        laser = laser.set_color(PINK)
+        self.play(
+            laser.animate.move_to([-7,5,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser))
+#
+        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
+        laser = laser.set_color(PINK)
+        self.play(
+            laser.animate.move_to([-7,5,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser))
+        #
+        
+        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,5,0])
+        laser = laser.set_color(PINK)
+        self.play(
+            laser.animate.move_to([-9,5,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser))
+        #
+        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-9,5,0])
+        laser = laser.set_color(PINK)
+        self.play(
+            laser.animate.move_to([-9,-20,0]), run_time=2
+            
+        )
+        self.play(FadeOut(laser))
+     ######################################   
+        #l2 = ThreeDVMobject()
+        
+        #l2.add_updater(lambda x: x.become(Line3D(LEFT, d1.get_center()).set_color(RED)))
+        #self.play(MoveAlongPath(d1, path), rate_func=linear)
+
+
+        self.begin_3dillusion_camera_rotation(rate=1)
+        self.wait(PI)
+        self.stop_3dillusion_camera_rotation()
         #self.begin_3dillusion_camera_rotation(rate=1)
         #self.wait(PI)
        # self.stop_3dillusion_camera_rotation()
-
 c1=d3()

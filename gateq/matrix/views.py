@@ -5,6 +5,8 @@ import math
 from plotly.offline import plot
 import plotly.graph_objs as go
 from plotly.graph_objs import Scatter
+# from models import d3
+import os
 #env\Scripts\activate 
 
 # Create your views here.
@@ -32,6 +34,23 @@ def R(thi):
     R=np.array([[math.cos(a), 1j*math.sin(a)], [1j*math.sin(a), math.cos(a)]]);
     return R
 
+
+def matAnimation(request):
+    animation=''
+    data=request.POST.dict()
+    inputs= getlist(data)
+    print(inputs)
+    animation= manimation(inputs)
+    return render(request,'matAnimation.html',{"animation":animation})
+
+def manimation(animation_inputs):
+    if animation_inputs != []:
+        os.system("manim -ql ..\manim.py d3")
+        return 1
+    else :
+        pass
+
+
 #C-x,y gate PG2 Gate8 8x8
 def cxy(pi):
     pi=float(pi)
@@ -50,8 +69,11 @@ def composer(request):
     if request.method == 'POST':
         a=request.POST.get('21')
         data=request.POST.dict()
+        data['last_element']="le"
         inputs= getlist(data)
-        print('inputs',inputs)
+        animation_data=inputs[16:]
+        inputs=inputs[:15]
+        print('inputs',inputs,'data',animation_data)
         product,states,values,plot_div=Quantum_Operator(inputs)
         print(product,states,product.shape)
         parameters=zip(states,values)
@@ -171,3 +193,8 @@ def Quantum_Operator(inputs):
                 output_type='div')
         
         return product,states,values,plot_div
+
+
+
+
+
