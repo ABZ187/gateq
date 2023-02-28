@@ -1,205 +1,218 @@
 {% load static %}
-    <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <form action="" method="post" enctype="multipart/form-data">
-            <table style="border:2px solid #5e8; border-radius:5px; padding:5px; width:300px; background-color:#337; color:#fff;margin-left: 30%;"">
-            <div class="image">
-                <img src="{% static 'images/image.png' %}" alt="#"  style=" margin-left: 20; "/>
-            <div class="bottom-right">Optical Setup</div></div>
-            <div class="NLC">NLC</div></div>
-            <div class="Polarizer">Polarizer</div></div>
-            <div class="PBS">PBS</div></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <form action="" method="post" enctype="multipart/form-data">
+      <div class="image">
+          <img src="{% static 'images/image.png' %}" alt="#"  style=" margin-left: 20; "/>
+      <div class="bottom-right">Optical Setup</div></div>
+      <div class="NLC">NLC</div></div>
+      <div class="Polarizer">Polarizer</div></div>
+      <div class="PBS">PBS</div></div>
 
+      <style>
+        .bottom-right {
+          position: absolute;
+          bottom: 8px;
+          right: 40%;
+          color: white;
+          font-size: 50px;
+        }
+        .NLC {
+          position: absolute;
+          bottom: 130px;
+          right: 58%;
+          color: white;
+          font-size: 20px;
+        }
+        .Polarizer {
+          position: absolute;
+          bottom: 170px;
+          right: 49%;
+          color: white;
+          font-size: 20px;
+        }
+        .PBS {
+          position: absolute;
+          bottom: 220px;
+          right: 42%;
+          color: white;
+          font-size: 20px;
+        }
+      </style>
+      </div>
 
-            <style>
-              .bottom-right {
-                position: absolute;
-                bottom: 8px;
-                right: 40%;
-                color: white;
-                font-size: 50px;
-              }
-              .NLC {
-                position: absolute;
-                bottom: 130px;
-                right: 58%;
-                color: white;
-                font-size: 20px;
-              }
-              .Polarizer {
-                position: absolute;
-                bottom: 170px;
-                right: 49%;
-                color: white;
-                font-size: 20px;
-              }
-              .PBS {
-                position: absolute;
-                bottom: 220px;
-                right: 42%;
-                color: white;
-                font-size: 20px;
-              }
-            </style>
-            </div>
-
-              <form action="" method="post" enctype="multipart/form-data">
-                <br><br>
-                <div>
-                  <h1 style="
-                  margin-left: 550px;
-              ">Enter the Coordinates</h1>
-                <tr><td>Lens</td><td>X coordinate</td><td>Y cordinate</td><td>Z cordinate</td></tr>
-                <tr>
-                <td>NLC</td>
-                <td><input name="51" type="text"   value='0.0' ></td>
-                <td><input name="52" type="text"   value='0.0'  style="width:150px;"></td>
-                <td><input name="53" type="text" maxlength="25"   value='0.0' style="width:150;"></td>
-                
-              
-                </tr>
-                </div>
-                <tr>
-                <td>GT- Polarizer</td>
-                <td><input name="61" type="text"   value='0.0' ></td>
-                <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-               
-              
-                </tr>
-                <tr>
-                    <td>PBS1</td>
-                    <td><input name="61" type="text"   value='0.0' ></td>
-                    <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                    <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                   
-                  
-                    </tr>
-                    <tr>
-                        <td>PBS2</td>
-                        <td><input name="61" type="text"   value='0.0' ></td>
-                        <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                        <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                       
-                      
-                        </tr>
-                        <tr>
-                            <td>PBs3</td>
-                            <td><input name="61" type="text"   value='0.0' ></td>
-                            <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                            <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                           
-                          
-                            </tr>
-                            <tr>
-                                <td>PBS4</td>
-                                <td><input name="61" type="text"   value='0.0' ></td>
-                                <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                                <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
-                               
-                              
-                                </tr>
-                 
-                </table>
-                <div class="buttonGate">
-                  <button type='submit' class="buttong"><span>SET VALUE</span></button>
-                  {% csrf_token %}
-              </form>
-                <style>
-        
-                    <style>
-                        a {
-                          text-decoration: none;
-                        }
-                        
-                        nav {
-                          font-family: monospace;
-                        }
-                        
-                        ul {
-                          background: darkorange;
-                          list-style: none;
-                          margin: 0;
-                          padding-left: 0;
-                        }
-                        
-                        li {
-                          color: black;
-                          background: #337;
-                          margin-left:60%;
-                          display: block;
-                          float: left;
-                          padding: 1rem;
-                          position: relative;
-                          text-decoration: none;
-                          transition-duration: 0.5s;
-                        }
-                          
-                        li a {
-                          color: white;
-                        }
-                        
-                        li:hover,
-                        li:focus-within {
-                          background: red;
-                          cursor: pointer;
-                        }
-                        
-                        li:focus-within a {
-                          outline: none;
-                        }
-                        
-                        ul li ul {
-                          background: #337;
-                          visibility: hidden;
-                          opacity: 0;
-                          min-width: 5rem;
-                          position: absolute;
-                          transition: all 0.5s ease;
-                          margin-top: 1rem;
-                          left: 0;
-                          display: none;
-                        }
-                        
-                        ul li:hover > ul,
-                        ul li:focus-within > ul,
-                        ul li ul:hover,
-                        ul li ul:focus {
-                           visibility: visible;
-                           opacity: 1;
-                           display: block;
-                        }
-                        
-                        ul li ul li {
-                          clear: both;
-                          width: 100%;
-                        }
-                      </style>
-        <script src="" async defer></script>
-        <div class="output">
-          <div style="width:1000px;height:500px;border:1px solid #000; margin-left:13%">Output Animation<br><br>
-            {% if animation %}
-            <video style="width:1000px;height:450px" controls>
-              <source src="{% static 'videos/download (3).mp4' %}" type="video/mp4">
-              Your browser does not support HTML video.
-              {% endif %}
-            </video>
+        <form action="" method="post" enctype="multipart/form-data"><br><br>
+        <div>
+        <table style="border:2px solid #5e8; border-radius:5px; padding:5px; width:300px; background-color:#337; color:#fff;margin-left: 30%;">
+          <h1 style="margin-left: 550px;">Enter the Coordinates</h1>
+          <tr><td>Lens</td><td>X coordinate</td><td>Y cordinate</td><td>Z cordinate</td></tr>
+          <tr>
+            <td>NLC</td>
+            <td><input name="11" type="text"   value='0.0' ></td>
+            <td><input name="12" type="text"   value='0.0'  style="width:150px;"></td>
+            <td><input name="13" type="text" maxlength="25"   value='0.0' style="width:150;"></td>
+          </tr>
+          <tr>
+            <td>GT- Polarizer</td>
+            <td><input name="21" type="text"   value='0.0' ></td>
+            <td><input name="22" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+            <td><input name="23" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+          </tr>
+          <tr>
+            <td>PBS1</td>
+            <td><input name="31" type="text"   value='0.0' ></td>
+            <td><input name="32" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+            <td><input name="33" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+          </tr>
+          <tr>
+            <td>PBS2</td>
+            <td><input name="41" type="text"   value='0.0' ></td>
+            <td><input name="42" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+            <td><input name="43" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+          </tr>
+          <tr>
+            <td>PBs3</td>
+            <td><input name="51" type="text"   value='0.0' ></td>
+            <td><input name="52" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+            <td><input name="53" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+          </tr>
+          <tr>
+            <td>PBS4</td>
+            <td><input name="61" type="text"   value='0.0' ></td>
+            <td><input name="62" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+            <td><input name="63" type="text" maxlength="25"   value='0.0' style="width:150px;"></td>
+          </tr>
+          <h4>Note:&nbsp;By adding -1,-1,-1 coordinate it will remove the element</h4>
+          <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By adding 0,0,0 coordinate it will add the element in the by default place</h4>
+        </table><br><br><br>
             
-          </div>
-
+        <div class="buttonGate">
+          <button type='submit' class="buttong"><span>SHOW CONSOLE</span></button>
+          <button type='submit' class="buttong"><span>SET VALUE</span></button>
+          {% csrf_token %}
         </div>
-    </body>
+        </form>
+        <style>
+    
+                    a {
+                      text-decoration: none;
+                    }
+                    
+                    nav {
+                      font-family: monospace;
+                    }
+                    
+                    ul {
+                      background: darkorange;
+                      list-style: none;
+                      margin: 0;
+                      padding-left: 0;
+                    }
+                    
+                    li {
+                      color: black;
+                      background: #337;
+                      margin-left:60%;
+                      display: block;
+                      float: left;
+                      padding: 1rem;
+                      position: relative;
+                      text-decoration: none;
+                      transition-duration: 0.5s;
+                    }
+                      
+                    li a {
+                      color: white;
+                    }
+                    
+                    li:hover,
+                    li:focus-within {
+                      background: red;
+                      cursor: pointer;
+                    }
+                    
+                    li:focus-within a {
+                      outline: none;
+                    }
+                    
+                    ul li ul {
+                      background: #337;
+                      visibility: hidden;
+                      opacity: 0;
+                      min-width: 5rem;
+                      position: absolute;
+                      transition: all 0.5s ease;
+                      margin-top: 1rem;
+                      left: 0;
+                      display: none;
+                    }
+                    
+                    ul li:hover > ul,
+                    ul li:focus-within > ul,
+                    ul li ul:hover,
+                    ul li ul:focus {
+                        visibility: visible;
+                        opacity: 1;
+                        display: block;
+                    }
+                    
+                    ul li ul li {
+                      clear: both;
+                      width: 100%;
+                    }
+                    .dropbtn {
+                      background-color: black;
+                      color: white;
+                      padding: 16px;
+                      font-size: 16px;
+                      border: none;
+                    }
+                    
+                    .dropdown {
+                      position: relative;
+                      display: inline-block;
+                    }
+                    
+                    .dropdown-content {
+                      display: none;
+                      position: absolute;
+                      background-color: #f1f1f1;
+                      min-width: 160px;
+                      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                      z-index: 1;
+                    }
+                    
+                    .dropdown-content a {
+                      color: black;
+                      padding: 12px 16px;
+                      text-decoration: none;
+                      display: block;
+                    }
+                    .dropdown-content a:hover {background-color: #839192;}
+                    .dropdown:hover .dropdown-content {display: block;}
+                    .dropdown:hover .dropbtn {background-color: #1c2833;}
+                  </style>
+    <script src="" async defer></script>
+    <div class="output">
+      <div style="width:1000px;height:500px;border:1px solid #000; margin-left:13%">Output Animation<br><br>
+        {% if animation %}
+        <video style="width:1000px;height:450px" controls>
+          <source src="{% static 'videos/download (3).mp4' %}" type="video/mp4">
+          Your browser does not support HTML video.
+          {% endif %}
+        </video>
+        
+      </div>
+
+    </div>
+  </body>
 </html>

@@ -1,7 +1,6 @@
 from manim import *
 import math
-
-
+from gateq.matrix.views import inputs
 
 # class FirstManim(Scene):
 #     def construct(self,x1=0.8):
@@ -15,13 +14,27 @@ import math
 #         self.play(FadeIn(area),color=RED,opacity=0.8)
 
 
+#inputs=['11', '12', '13', '21', '22', '23', '31', '32', '33', '41', '42', '43', '51', '52', '53', '61', '62', '63']
+
       # Note the difference from the manual!!!
 class d3(ThreeDScene):
     def construct(self):
         axes = ThreeDAxes()
+        global inputs
         circle=Circle(radius=5.0, color=WHITE, fill_opacity = 1)
         self.set_camera_orientation(phi=75 * DEGREES, theta=30 * DEGREES, gamma=None,zoom=0.5, focal_distance=None, )
 #############################
+#location of static objects
+        print("Coordinates of Objects in [X,Y,Z] format are-")
+        locations = """Source = [9,0,0].Beam Splitter = [7,0,0].Polariser = [5,0,0].Crystal Beam Splitter = [0,0,0].Mirror[-3,0,0].Mirror[-3,0,0].Mirror[-3,0,0].Mirror[-3,0,0].Mirror[-3,0,0].Mirror[-3,0,0].Mirror[-3,1,0].Mirror[--1,0,0].Mirror[-13,0,0].Mirror[-15,0,0].Mirror[-15,0,0].Mirror[-3,0,0]"""
+        coordinates = locations.split(".")
+        for x in coordinates:
+          print(" "+x)
+        print("Path of the light as straight lines between the objects-")
+        locations = """Source = [9,0,0].[7,0,0].[5,0,0].[0,0,0].[-3,0,0].[-3,2,0] [-3,3,0] [-3,5,0] [-3,6,0]--Sink.[-3,7,0].[-3,1,0].[--1,0,0].[-13,0,0].[-15,0,0] [-15,2,0]--sink.[-22,0,0]--sink"""
+        coordinates = locations.split(".")
+        for x in coordinates:
+          print(" "+x)
 #############################
 #---------------------All Lenses and cubes!!!
 #(lens0 - lens off the x axis)        
@@ -38,8 +51,8 @@ class d3(ThreeDScene):
         self.add(lens0)
 
 
-        cylinder1 = Cylinder(radius=0.5, height=0.1, direction=[1., 0., 0.]).move_to([1,0,0])
-        self.add(cylinder1)
+        #cylinder1 = Cylinder(radius=0.5, height=0.1, direction=[1., 0., 0.]).move_to([1,0,0])
+        #self.add(cylinder1)
 
         cylinder2 = Cylinder(radius=0.5, height=0.2, direction=[1., 0., 0.]).move_to([4,0,0])
         self.add(cylinder2)
@@ -58,12 +71,16 @@ class d3(ThreeDScene):
 
         cube2 = Cube(side_length=1, fill_opacity=0.7, fill_color=PINK).move_to([-13, 3, 0])
         self.add(cube2)
+        ###################
+        if slm2_x[2] != -1:
 
-        cube2 = Cube(side_length=1, fill_opacity=0.7, fill_color=PINK).move_to([-17, -3, 0])
-        self.add(cube2)
-
-        cube2 = Cube(side_length=1, fill_opacity=0.7, fill_color=PINK).move_to([-20, -8, 0])
-        self.add(cube2)
+           cube2 = Cube(side_length=1, fill_opacity=0.7, fill_color=PINK).move_to([-17, -3, 0])
+           self.add(cube2)
+###############################
+        if lc_x[2] != -1:
+            cube2 = Cube(side_length=1, fill_opacity=0.7, fill_color=PINK).move_to([-20, -8, 0])
+            self.add(cube2)
+###############################
         cylinder1 = Cylinder(radius=0.5, height=0.1, direction=[0., 1., 0.]).move_to([-20,-9,0])
         self.add(cylinder1)
         cylinder1 = Cylinder(radius=0.5, height=0.1, direction=[0., 1., 0.]).move_to([-20,-10,0])
@@ -165,70 +182,78 @@ class d3(ThreeDScene):
         self.add(mirror)
 #######################
 #######################
-
+       
 
 
         self.add(cube1)
 
-        #laser
-        laser1 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([8,0,0])
-        laser1 = laser1.set_color(RED)
 
-        laser2 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([-2,0,0])
-        laser2 = laser2.set_color(PINK)
 
-        laser3 = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,0,0])
-        laser3 = laser3.set_color(PINK)
-        #self.add(cylinder4)
-        self.play(
-            laser1.animate.move_to([-2,0,0]), run_time=2
+
+
+# #######################################################################################
+# ###ANIMATION PART#
+# ############################################################################################
+#         #laser
+#         #
+#         laser1 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([8,0,0])
+#         laser1 = laser1.set_color(RED)
+
+#         laser2 = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([-2,0,0])
+#         laser2 = laser2.set_color(PINK)
+
+#         laser3 = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,0,0])
+#         laser3 = laser3.set_color(PINK)
+#         #self.add(cylinder4)
+#         self.play(
+#             laser1.animate.move_to([-2,0,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser1))
-        self.play(
-            laser2.animate.move_to([-7,0,0]), run_time=2
+#         )
+#         self.play(FadeOut(laser1))
+#         self.play(
+#             laser2.animate.move_to([-7,0,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser2))
-        self.play(
-            laser3.animate.move_to([-7,3,0]), run_time=2
+#         )
+#         self.play(FadeOut(laser2))
+#         self.play(
+#             laser3.animate.move_to([-7,3,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser3))
+#         )
+#         self.play(FadeOut(laser3))
         
-        ########
-        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
-        laser = laser.set_color(PINK)
-        self.play(
-            laser.animate.move_to([-7,5,0]), run_time=2
+#         ########
+#         #laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
+#        # laser = laser.set_color(PINK)
+#         #self.play(
+#             #laser.animate.move_to([-7,5,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser))
-#
-        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
-        laser = laser.set_color(PINK)
-        self.play(
-            laser.animate.move_to([-7,5,0]), run_time=2
+#         #)
+#         #self.play(FadeOut(laser))
+# #
+#         #laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,3,0])
+#         #laser = laser.set_color(PINK)
+#         #self.play(
+#             #laser.animate.move_to([-7,5,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser))
-        #
+#         #)
+#         #self.play(FadeOut(laser))
+#         #
         
-        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-7,5,0])
-        laser = laser.set_color(PINK)
-        self.play(
-            laser.animate.move_to([-9,5,0]), run_time=2
+#         laser = Cylinder(radius=0.2, height=1, direction=[1., 0., 0.]).move_to([-7,3,0])
+#         laser = laser.set_color(PINK)
+#         self.play(
+#             laser.animate.move_to([-16,3,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser))
-        #
-        laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-9,5,0])
-        laser = laser.set_color(PINK)
-        self.play(
-            laser.animate.move_to([-9,-20,0]), run_time=2
+#         )
+#         self.play(FadeOut(laser))
+#         #
+#         laser = Cylinder(radius=0.2, height=1, direction=[0., 1., 0.]).move_to([-20,3,0])
+#         laser = laser.set_color(PINK)
+#         self.play(
+#             laser.animate.move_to([-20,-11,0]), run_time=2
             
-        )
-        self.play(FadeOut(laser))
+#         )
+#         self.play(FadeOut(laser))
      ######################################   
         #l2 = ThreeDVMobject()
         

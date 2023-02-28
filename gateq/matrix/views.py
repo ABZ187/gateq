@@ -1,13 +1,11 @@
-from django.http import HttpRequest, HttpResponse, QueryDict
 from django.shortcuts import render
 import numpy as np
 import math
-from plotly.offline import plot
-import plotly.graph_objs as go
-from plotly.graph_objs import Scatter
+# from plotly.offline import plot
+# from plotly.graph_objs import Scatter
 # from models import d3
 import os
-#env\Scripts\activate 
+#venv\Scripts\activate 
 
 # Create your views here.
 ket0=np.array([1,0]);
@@ -34,13 +32,13 @@ def R(thi):
     R=np.array([[math.cos(a), 1j*math.sin(a)], [1j*math.sin(a), math.cos(a)]]);
     return R
 
-
+inputs=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0']
 def matAnimation(request):
     animation=''
-    data=request.POST.dict()
+    data=request.POST
     inputs= getlist(data)
-    print(inputs)
-    animation= manimation(inputs)
+    print('inputs',inputs)
+    # animation= manimation(inputs)
     return render(request,'matAnimation.html',{"animation":animation})
 
 def manimation(animation_inputs):
